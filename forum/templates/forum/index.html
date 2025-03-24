@@ -1,0 +1,15 @@
+{% extends "forum/base.html" %}
+
+{% block content %}
+{% if perguntas %}
+    <h1>Últimas perguntas</h1>
+    <ul>
+    {% for pergunta in perguntas %}
+        <li><a href="{% url 'forum:detalhe' pergunta.id %}">{{ pergunta.titulo }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhuma pergunta disponível.</p>
+{% endif %}
+<a href="{% url 'forum:inserir_pergunta' %}">Nova pergunta</a>
+{% endblock %}
