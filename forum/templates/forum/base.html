@@ -1,0 +1,10 @@
+<html>
+<head>
+    <title>Exemplo StackOverflow</title>
+</head>
+<body>
+    <span><a href="{% url 'forum:index' %}">Home</a> | <a href="{% url 'forum:inserir_pergunta' %}">Criar pergunta</a></span>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
