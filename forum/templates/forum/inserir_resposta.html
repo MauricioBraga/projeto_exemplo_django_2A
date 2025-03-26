@@ -1,0 +1,14 @@
+{% extends "forum/detalhe.html" %}
+
+{% block respostas %}
+<h1>Nova resposta</h1>
+<form method="post">
+    {% csrf_token %}
+    <p><label for="text">Escreva sua Resposta:</label><br />
+            <textarea rows="10" cols="40" id="texto" name="texto"></textarea>
+    </p>
+
+    <input type="submit" name="dopost" value="Salvar" />
+
+</form>
+{% endblock %}
