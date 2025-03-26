@@ -12,7 +12,7 @@ from django.urls import reverse
 
 class MainView(View):
     def get(self, request):
-        lista_ultimas_questoes = Pergunta.object.order_by("-data_criacao")
+        lista_ultimas_questoes = Pergunta.objects.order_by("-data_criacao")
         contexto = {'perguntas' : lista_ultimas_questoes}
         return render(request, 'forum/index.html', contexto)
 

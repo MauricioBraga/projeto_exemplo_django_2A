@@ -1,0 +1,20 @@
+arquivo inserir_pergunta.html
+{% extends "forum/base.html" %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <p><label for="titulo">Escreva sua pergunta:</label><br>
+        <input type="text" name="titulo" id="titulo" size="50" maxlength="200">
+    </p>
+    <p><label for="detalhe">Detalhe o problema:<br />
+            <textarea rows="10" cols="40" id="detalhe" name="detalhe"></textarea>
+    </p>
+    <p><label for="tentativa">Escreva o que você já tentou:<br />
+            <textarea rows="10" cols="40" id="tentativa" name="tentativa"></textarea>
+    </p>
+
+    <input type="submit" name="dopost" value="Salvar" />
+
+</form>
+{% endblock %}

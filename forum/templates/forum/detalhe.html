@@ -1,0 +1,17 @@
+{% extends "forum/base.html" %}
+
+{% block content %}
+<h1>{{ pergunta.titulo }}</h1>
+<p>{{ pergunta.detalhe }}</p>
+<p>{{ pergunta.tentativa }}</p>
+<p>{{ pergunta.data_criacao | date:"d M Y" }}</p>
+<p>Criado por {{ pergunta.usuario }}</p>
+    {% block respostas %}
+    <ul>
+    {% for resposta in pergunta.resposta_set.all %}
+        <li>{{ resposta.texto }}: <b>{{ resposta.votos }} votos</b> <form action="{% url 'forum:voto' resposta.id %}" method="post">{% csrf_token %}<input type="submit" name="dopost"     value="Votar" /></form></li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'forum:inserir_resposta' pergunta.id %}">Nova resposta</a>
+    {% endblock %}
+{% endblock %}
